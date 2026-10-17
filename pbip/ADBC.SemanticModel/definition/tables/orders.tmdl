@@ -1,0 +1,76 @@
+table orders
+	lineageTag: 8509add0-85bd-464c-a4e5-3e54d15c4abb
+
+	measure Orders = COUNTROWS(orders)
+		formatString: #,0
+		lineageTag: 9fba3c71-0045-473a-9f76-e47c33eb759c
+
+	column o_orderkey
+		dataType: int64
+		formatString: 0
+		lineageTag: 954aea64-0534-45f7-a4d7-f6d3c40a62f5
+		summarizeBy: none
+		sourceColumn: o_orderkey
+
+	column o_custkey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f714998-9350-43bc-83be-e6629ec78936
+		summarizeBy: none
+		sourceColumn: o_custkey
+
+	column o_orderstatus
+		dataType: string
+		lineageTag: 4bd79189-8bce-4ca1-b3ef-f017933fe1b5
+		summarizeBy: none
+		sourceColumn: o_orderstatus
+
+	column o_totalprice
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: b27d1a63-b886-40a5-a8e5-9ffcc101a4ee
+		summarizeBy: none
+		sourceColumn: o_totalprice
+
+	column o_orderdate
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: b4c59820-5055-4aaa-8024-92727d482184
+		summarizeBy: none
+		sourceColumn: o_orderdate
+
+	column o_orderpriority
+		dataType: string
+		lineageTag: e3eae5ce-424d-4af7-9124-445364de4134
+		summarizeBy: none
+		sourceColumn: o_orderpriority
+
+	column o_clerk
+		dataType: string
+		lineageTag: dfd5de73-9e72-4fa9-bb07-501e3bc1a629
+		summarizeBy: none
+		sourceColumn: o_clerk
+
+	column o_shippriority
+		dataType: int64
+		formatString: 0
+		lineageTag: 047ab077-3bb3-40a0-9997-fea9f65e66cd
+		summarizeBy: none
+		sourceColumn: o_shippriority
+
+	column o_comment
+		dataType: string
+		lineageTag: d6740ef8-3c1c-435e-89af-630cb776adbb
+		summarizeBy: none
+		sourceColumn: o_comment
+
+	partition orders = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("<your-workspace>.cloud.databricks.com", "C:/Program Files/Git/sql/1.0/warehouses/<your-warehouse-id>", [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null, Implementation = "2.0"]),
+				    samples_Database = Source{[Name = "samples", Kind = "Database"]}[Data],
+				    tpch_Schema = samples_Database{[Name = "tpch", Kind = "Schema"]}[Data],
+				    orders_Table = tpch_Schema{[Name = "orders", Kind = "Table"]}[Data]
+				in
+				    orders_Table

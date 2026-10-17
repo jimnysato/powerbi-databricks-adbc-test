@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ODBC"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5d7d27d5-2664-49c8-b2bb-04e78dba979a"
+  }
+}

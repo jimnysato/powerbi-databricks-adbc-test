@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ADBC"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "10d887fb-3385-4a94-a287-24e0e102e2be"
+  }
+}

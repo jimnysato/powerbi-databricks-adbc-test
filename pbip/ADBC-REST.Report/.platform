@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ADBC-REST"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0f4a7cec-ec95-440b-9a79-6d0057a30613"
+  }
+}
